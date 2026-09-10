@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+:root {
+  --soil: #1b1712;
+  --soil-2: #241e17;
+  --wheat: #d9a227;
+  --wheat-soft: #e9c15e;
+  --sage: #7c8b5b;
+  --parchment: #f2e9d8;
+  --parchment-2: #e8dcc4;
+  --clay: #a34a2e;
+  --ink: #2a2018;
+}
+
+@theme inline {
+  --color-soil: var(--soil);
+  --color-soil-2: var(--soil-2);
+  --color-wheat: var(--wheat);
+  --color-wheat-soft: var(--wheat-soft);
+  --color-sage: var(--sage);
+  --color-parchment: var(--parchment);
+  --color-parchment-2: var(--parchment-2);
+  --color-clay: var(--clay);
+  --color-ink: var(--ink);
+
+  --font-serif: var(--font-fraunces);
+  --font-sans: var(--font-work-sans);
+  --font-mono: var(--font-jetbrains-mono);
+
+  /* единая ширина контейнера секций — вместо max-w-[1120px] в каждом файле */
+  --max-width-container: 1120px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--parchment);
+  color: var(--ink);
+  font-family: var(--font-work-sans), sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-fraunces), serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+@keyframes sway {
+  0%,
+  100% {
+    transform: rotate(-2.2deg);
+  }
+  50% {
+    transform: rotate(2.4deg);
+  }
+}
+
+.stalk {
+  transform-origin: bottom center;
+  animation: sway 4.5s ease-in-out infinite;
+}
+.stalk:nth-child(odd) {
+  animation-duration: 5.2s;
+}
+.stalk:nth-child(3n) {
+  animation-delay: -1.3s;
+}
+.stalk:nth-child(4n) {
+  animation-delay: -2.6s;
+  animation-duration: 4.8s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stalk {
+    animation: none;
+  }
+}
